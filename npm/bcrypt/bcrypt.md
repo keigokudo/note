@@ -6,6 +6,8 @@ Link: [brypt](https://www.npmjs.com/package/bcrypt)
 
 ## Usage
 
+### How to hash a password
+
 ```
 bcrypt.hash(plainTextPassword, salt, function(err, hash) {
     // Store hash in your password DB.
@@ -15,6 +17,15 @@ bcrypt.hash(plainTextPassword, salt, function(err, hash) {
 **What is salt?**
 _Salt is basically a string which is added to the password before the password is hashed. This makes the hash more secure.
 You also can add a number and bcrypt generates the string automatically._
+
+### How to check a password
+
+```
+// Load hash from your password DB.
+bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+    // result == true
+});
+```
 
 ## Example
 
